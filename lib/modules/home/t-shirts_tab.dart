@@ -12,9 +12,17 @@ List<ProductModel> shirts =[
 class ShirtsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index)=> shirts[index].BuildProduct(),
-      itemCount: shirts.length,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GridView.builder(
+        itemBuilder: (BuildContext context, int index) => shirts[index].BuildProduct(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 5,
+          mainAxisSpacing: 5,
+        ),
+        itemCount: shirts.length,
+      ),
     );
   }
 }

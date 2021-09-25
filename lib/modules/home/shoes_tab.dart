@@ -12,9 +12,17 @@ ProductModel('Sneakers shoes', 100, 'https://ph-live-05.slatic.net/p/f68114dafdd
 class ShoesTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index)=> shoes[index].BuildProduct(),
-      itemCount: shoes.length,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GridView.builder(
+        itemBuilder: (BuildContext context, int index) => shoes[index].BuildProduct(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 5,
+          mainAxisSpacing: 5,
+        ),
+        itemCount: shoes.length,
+      ),
     );
   }
 }

@@ -66,6 +66,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     function: (value){
                       if(value!.isEmpty){
                         return 'Your password is empty!';
+                      }else if(value.length<5){
+                        return 'password length can not be less than 6';
                       }
                       return null;
                     },
