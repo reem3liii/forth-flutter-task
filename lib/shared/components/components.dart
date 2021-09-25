@@ -7,6 +7,7 @@ Widget defaultFormField ({
   required Icon prefix,
   required String? Function(String?)? function,
   Icon? suffix,
+  void Function()? suffixOnPress,
   bool isPassword = false,
 }) => TextFormField(
   keyboardType: type,
@@ -20,7 +21,7 @@ Widget defaultFormField ({
       borderRadius: BorderRadius.circular(20),
     ),
     prefixIcon: prefix,
-    suffixIcon: suffix,
+    suffixIcon: suffix!=null ? IconButton(onPressed: suffixOnPress, icon: suffix): null,
     labelText: lable,
   ),
 );

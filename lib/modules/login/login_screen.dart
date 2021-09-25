@@ -14,6 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   bool isUser = true;
+  bool isPass = true;
   var formKey = GlobalKey<FormState>();
 
   @override
@@ -60,9 +61,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       Icons.lock,
                     ),
                     suffix: Icon(
-                      Icons.remove_red_eye,
+                      isPass ? Icons.visibility : Icons.visibility_off ,
                     ),
-                    isPassword: true,
+                    suffixOnPress: (){
+                      setState(() {
+                        isPass = !isPass ;
+                      });
+                    },
+                    isPassword: isPass,
                     function: (value){
                       if(value!.isEmpty){
                         return 'Your password is empty!';
